@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="80dp"
+    android:height="80dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Outer Circle -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2Z"/>
+
+    <!-- Centered Cross -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M15.59,8.41C15.2,8.02 14.58,8.02 14.19,8.41L12,10.59L9.81,8.41C9.42,8.02 8.8,8.02 8.41,8.41C8.02,8.8 8.02,9.42 8.41,9.81L10.59,12L8.41,14.19C8.02,14.58 8.02,15.2 8.41,15.59C8.8,15.98 9.42,15.98 9.81,15.59L12,13.41L14.19,15.59C14.58,15.98 15.2,15.98 15.59,15.59C15.98,15.2 15.98,14.58 15.59,14.19L13.41,12L15.59,9.81C15.98,9.42 15.98,8.8 15.59,8.41Z"/>
+</vector>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <!-- Search Bar with Camera -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+        <!-- Search Bar -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:background="@drawable/search_bg"
+            android:padding="8dp"
+            android:elevation="2dp"
+            android:gravity="center_vertical">
+
+            <!-- Search Icon -->
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_search"
+                android:contentDescription="Search Icon"
+                android:layout_marginEnd="8dp" />
+
+            <!-- Input Field -->
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="Cari..."
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:textColor="#000000"
+                android:textColorHint="#808080"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Camera Icon -->
+        <ImageView
+            android:id="@+id/ic_scan"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_scan"
+            android:contentDescription="Scan Icon"
+            android:padding="8dp"
+            android:elevation="2dp"
+            android:layout_marginStart="16dp"
+            android:layout_gravity="center" />
+    </LinearLayout>
+
+    <!-- Button Group -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="2">
+
+        <!-- Button Tipe Alat -->
+        <Button
+            android:id="@+id/btn_tipe_alat"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="Tipe Alat"
+            android:backgroundTint="#E0E0E0"
+            android:textColor="#000000"
+            android:layout_marginEnd="8dp"
+            android:elevation="2dp" />
+
+        <!-- Button Otot -->
+        <Button
+            android:id="@+id/btn_otot"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="Otot"
+            android:backgroundTint="#E0E0E0"
+            android:textColor="#000000"
+            android:layout_marginStart="8dp"
+            android:elevation="2dp" />
+    </LinearLayout>
+
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
+</LinearLayout>

@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/user_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/profile_setting"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- Profile Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="18dp">
+
+        <!-- Profile Image -->
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/profile"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="16dp" />
+
+        <!-- User Info -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+            <!-- User Name -->
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gymer"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
+            <!-- Email -->
+            <TextView
+                android:id="@+id/user_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="gymercapstone@gmail.com"
+                android:textColor="#808080"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Account Section -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Account"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat_medium"
+        android:layout_marginBottom="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_personal_setting"
+                android:layout_marginEnd="16dp" />
+
+            <Button
+                android:id="@+id/personal_setting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Personal Setting"
+                android:background="?attr/selectableItemBackground"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:gravity="start" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_notification"
+                android:layout_marginEnd="16dp" />
+
+            <Button
+                android:id="@+id/notification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Notification"
+                android:background="?attr/selectableItemBackground"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:gravity="start" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_privacy_security"
+                android:layout_marginEnd="16dp" />
+
+            <Button
+                android:id="@+id/privacy_security"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Privacy and Security"
+                android:background="?attr/selectableItemBackground"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:gravity="start" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Purchase Section -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Purchase"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_promotions"
+                android:layout_marginEnd="16dp" />
+
+            <Button
+                android:id="@+id/promotions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Promotions"
+                android:background="?attr/selectableItemBackground"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:gravity="start" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_membership"
+                android:layout_marginEnd="16dp" />
+
+            <Button
+                android:id="@+id/membership"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Membership"
+                android:background="?attr/selectableItemBackground"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:gravity="start" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_payment"
+                android:layout_marginEnd="16dp" />
+
+            <Button
+                android:id="@+id/payment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Payment"
+                android:background="?attr/selectableItemBackground"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:gravity="start" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Terms of Use Section -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Terms of Use"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_about"
+                android:layout_marginEnd="16dp" />
+
+            <Button
+                android:id="@+id/about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="About"
+                android:background="?attr/selectableItemBackground"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:gravity="start" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_customer_support"
+                android:layout_marginEnd="16dp" />
+
+            <Button
+                android:id="@+id/customer_support"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Customer Support"
+                android:background="?attr/selectableItemBackground"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:gravity="start" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_contact"
+                android:layout_marginEnd="16dp" />
+
+            <Button
+                android:id="@+id/contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contact"
+                android:background="?attr/selectableItemBackground"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:gravity="start" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

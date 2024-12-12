@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Info -->
+    <string name="app_name">Gymer</string>
+    <string name="description">Transform your body and reach your fitness goals with our gym and fitness app</string>
+
+    <!-- Authentication -->
+    <string name="register_title">Sign Up</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="login_button">Login</string>
+    <string name="no_account">Don\'t have an account? Sign Up</string>
+    <string name="sign_up_button">Sign Up</string>
+    <string name="already_have_account">Already have an account? Sign In</string>
+    <string name="hint_first_name">First Name</string>
+    <string name="hint_phone">Phone Number</string>
+    <string name="hint_confirm_password">Confirm Password</string>
+    <string name="show_password">Show/Hide Password</string>
+    <string name="verification">Email Verification</string>
+    <string name="get_code">Get Your Code</string>
+    <string name="verification_desc">Please enter the 4-digit code sent to your email address</string>
+
+    <!-- Forgot Password -->
+    <string name="mail_address_here">Mail Address Here</string>
+    <string name="forgot_password_desc">Enter the email address associated with your account</string>
+    <string name="send_email">Send Email</string>
+    <string name="back">Back</string>
+    <string name="enter_email">Please enter your email address</string>
+    <string name="invalid_email">The email address is invalid</string>
+    <string name="email_sent">A reset link has been sent to your email</string>
+
+    <!-- Bottom Navigation Titles -->
+    <string name="home_title">Home</string>
+    <string name="search_title">Search</string>
+    <string name="plan_title">Plan</string>
+    <string name="profile_title">Profile</string>
+    <string name="progress">Your Weekly Progress</string>
+    <string name="scan">Scan Icon</string>
+    <string name="tipe_alat">Tipe Alat</string>
+    <string name="resend_email">If you don\'t receive the code Resend Email</string>
+    <string name="verify_and_proceed">Verify and Proceed</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="enter_new_password">Enter New Password</string>
+    <string name="reset_password_description">Your new password must be different from previously used passwords</string>
+    <string name="new_password_hint">New Password</string>
+    <string name="confirm_password_hint">Confirm New Password</string>
+    <string name="confirm">Continue</string>
+    <string name="latihan_jumat">Latihan Jumat</string>
+    <string name="_13_november_2024">13 November 2024</string>
+    <string name="_1_menit">1 menit</string>
+    <string name="set">Set</string>
+    <string name="_2">2</string>
+    <string name="_180kg">180kg</string>
+    <string name="beban">Beban</string>
+    <string name="history_excercise">History Excercise</string>
+    <string name="profile_setting">Profile Setting</string>
+    <string name="durasi">Durasi</string>
+    <string name="capture_button_description">Capture Photo</string>
+    <string name="login_button_description">Login</string>
+    <string name="sign_up_button_description">sign up</string>
+    <string name="send_email_button_description">button</string>
+    <string name="verify_and_proceed_description">verify</string>
+    <string name="close_button_description">x</string>
+    <string name="confirm_button_description">yes</string>
+    <string name="captured_image_description">captured</string>
+    <string name="back_button_description">back</string>
+    <string name="latihan_leg_extension_adalah_latihan_isolasi">" Latihan leg extension adalah latihan isolasi yang dirancang untuk melatih otot quadriceps (otot depan paha). Latihan ini dilakukan menggunakan mesin khusus, di mana Anda duduk dengan punggung menempel pada sandaran, lutut ditekuk pada sudut 90 derajat, dan kaki berada di bawah bantalan yang dapat digerakkan. Gerakan utamanya adalah meluruskan lutut untuk mengangkat bantalan, lalu perlahan kembali ke posisi awal.\n"</string>
+    <string name="_1_menguatkan_quadriceps_n2_meningkatkan_stabilitas_lutut">1.Menguatkan Quadriceps: Latihan ini secara khusus memperkuat otot quadriceps, yang berperan penting dalam aktivitas seperti berjalan, berlari, dan melompat.\n2.Meningkatkan Stabilitas Lutut: Dengan memperkuat otot di sekitar lutut, latihan ini membantu mencegah cedera dan meningkatkan stabilitas sendi.\n3.Pemulihan Cedera: Sering digunakan dalam rehabilitasi untuk memperbaiki kekuatan otot setelah cedera atau operasi lutut.\n4.Definisi Otot: Membantu membentuk otot paha depan agar lebih terlihat dan proporsional.</string>
+    <string name="_1_posisi_awal_duduk_di_mesin">1.Posisi Awal: Duduk di mesin leg extension, pastikan punggung tegak dan sandaran disesuaikan agar nyaman. Pegang pegangan mesin untuk stabilitas.\n2.Atur Bantalan: Letakkan bantalan tepat di atas pergelangan kaki Anda, dan sesuaikan beban sesuai kemampuan.\n3.Gerakan: Dorong bantalan ke atas dengan meluruskan lutut hingga kaki hampir sepenuhnya lurus, namun jangan kunci lutut.\n4.Kembali ke Posisi Awal: Turunkan beban perlahan ke posisi awal dengan mengontrol gerakan.\n5.Pengulangan: Lakukan gerakan ini sebanyak 10–15 repetisi dalam 3–4 set, tergantung pada tujuan latihan Anda.</string>
+    <string name="_1_kontrol_gerakan_secara_perlahan">"   - Jangan mengunci lutut saat kaki lurus untuk mencegah tekanan berlebih pada sendi.\n   - Fokus pada gerakan yang lambat dan terkontrol untuk menghindari cedera.\n   - Sesuaikan beban agar tidak terlalu berat untuk menghindari ketegangan otot.\n\nLatihan leg extension ideal bagi siapa saja yang ingin memperkuat otot paha depan atau menambah variasi pada rutinitas latihan kaki."</string>
+</resources>
