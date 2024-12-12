@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@android:color/transparent" /> <!-- Latar belakang transparan -->
-    <corners android:radius="12dp" /> <!-- Radius sudut 12dp -->
-    <stroke
-        android:width="2dp"
-        android:color="#B0B0B0" /> <!-- Warna garis tepi abu-abu -->
-</shape>
