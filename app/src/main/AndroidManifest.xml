@@ -1,20 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.satria.gymer">
 
-    <!-- Required permission to use the camera -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- Required permission to use the camera -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"
+        tools:ignore="ScopedStorage" />
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
+=======
+
+
+
+>>>>>>> 3edf99c5fb0c85679d8d267eca60229aeb8073d3
     <application
         android:allowBackup="true"
         android:exported="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.Gymer">
-
+        <activity
+            android:name=".ui.activity.HasilKlasifikasiKameraActivity"
+            android:exported="false" />
         <!-- Splash Activity sebagai launcher -->
         <activity
             android:name=".ui.activity.SplashActivity"
@@ -22,69 +35,60 @@
             android:theme="@style/Theme.Gymer">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Main Activity -->
+        </activity> <!-- Main Activity -->
         <activity
             android:name=".ui.activity.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Gymer">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Register Activity -->
+        </activity> <!-- Register Activity -->
         <activity
             android:name=".ui.activity.RegisterActivity"
             android:exported="true"
             android:theme="@style/Theme.Gymer"
-            android:windowSoftInputMode="adjustResize" />
-
-        <!-- Login Activity -->
+            android:windowSoftInputMode="adjustResize" /> <!-- Login Activity -->
         <activity
             android:name=".ui.activity.LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.Gymer"
-            android:windowSoftInputMode="adjustResize" />
-
-        <!-- Forgot Password Activity -->
+            android:windowSoftInputMode="adjustResize" /> <!-- Forgot Password Activity -->
         <activity
             android:name=".ui.activity.ForgotPasswordActivity"
             android:exported="true"
             android:theme="@style/Theme.Gymer"
-            android:windowSoftInputMode="adjustResize" />
-
-        <!-- Email Verification Activity -->
+            android:windowSoftInputMode="adjustResize" /> <!-- Email Verification Activity -->
         <activity
             android:name=".ui.activity.EmailVerificationActivity"
             android:exported="true"
             android:theme="@style/Theme.Gymer"
-            android:windowSoftInputMode="adjustResize" />
-
-        <!-- Reset Password Activity -->
+            android:windowSoftInputMode="adjustResize" /> <!-- Reset Password Activity -->
         <activity
             android:name=".ui.activity.ResetPasswordActivity"
             android:exported="true"
             android:theme="@style/Theme.Gymer"
             android:windowSoftInputMode="adjustResize" />
-
-        <activity android:name=".ui.activity.CameraXActivity"
+        <activity
+            android:name=".ui.activity.CameraXActivity"
             android:exported="true"
             android:theme="@style/Theme.Gymer"
-            android:windowSoftInputMode="adjustResize"/>
-
-        <activity android:name=".ui.activity.CameraPauseScreenActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.CameraPauseScreenActivity"
             android:exported="true"
             android:theme="@style/Theme.Gymer"
-            android:windowSoftInputMode="adjustResize"/>
-
-        <activity android:name=".ui.activity.AnalysisListActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.AnalysisListActivity"
             android:exported="true"
             android:theme="@style/Theme.Gymer"
+<<<<<<< HEAD
             android:windowSoftInputMode="adjustResize"/>
 
         <activity android:name=".ui.activity.DetailExerciseActivity"
@@ -106,6 +110,9 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+=======
+            android:windowSoftInputMode="adjustResize" />
+>>>>>>> 3edf99c5fb0c85679d8d267eca60229aeb8073d3
     </application>
 
 </manifest>

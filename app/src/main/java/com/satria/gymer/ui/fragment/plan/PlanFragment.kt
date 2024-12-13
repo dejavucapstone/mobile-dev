@@ -36,6 +36,7 @@ import retrofit2.Response
 
 class PlanFragment : Fragment(R.layout.fragment_plan) {
 
+<<<<<<< HEAD
     private var historyList: List<HistoryData> = listOf()
     private lateinit var adapter: HistoryAdapter
     private lateinit var binding: FragmentPlanBinding
@@ -154,4 +155,6 @@ class PlanFragment : Fragment(R.layout.fragment_plan) {
                 ).show()
             }
         }
+=======
+>>>>>>> 3edf99c5fb0c85679d8d267eca60229aeb8073d3
 }

@@ -69,6 +69,7 @@
     <string name="_1_menguatkan_quadriceps_n2_meningkatkan_stabilitas_lutut">1.Menguatkan Quadriceps: Latihan ini secara khusus memperkuat otot quadriceps, yang berperan penting dalam aktivitas seperti berjalan, berlari, dan melompat.\n2.Meningkatkan Stabilitas Lutut: Dengan memperkuat otot di sekitar lutut, latihan ini membantu mencegah cedera dan meningkatkan stabilitas sendi.\n3.Pemulihan Cedera: Sering digunakan dalam rehabilitasi untuk memperbaiki kekuatan otot setelah cedera atau operasi lutut.\n4.Definisi Otot: Membantu membentuk otot paha depan agar lebih terlihat dan proporsional.</string>
     <string name="_1_posisi_awal_duduk_di_mesin">1.Posisi Awal: Duduk di mesin leg extension, pastikan punggung tegak dan sandaran disesuaikan agar nyaman. Pegang pegangan mesin untuk stabilitas.\n2.Atur Bantalan: Letakkan bantalan tepat di atas pergelangan kaki Anda, dan sesuaikan beban sesuai kemampuan.\n3.Gerakan: Dorong bantalan ke atas dengan meluruskan lutut hingga kaki hampir sepenuhnya lurus, namun jangan kunci lutut.\n4.Kembali ke Posisi Awal: Turunkan beban perlahan ke posisi awal dengan mengontrol gerakan.\n5.Pengulangan: Lakukan gerakan ini sebanyak 10–15 repetisi dalam 3–4 set, tergantung pada tujuan latihan Anda.</string>
     <string name="_1_kontrol_gerakan_secara_perlahan">"   - Jangan mengunci lutut saat kaki lurus untuk mencegah tekanan berlebih pada sendi.\n   - Fokus pada gerakan yang lambat dan terkontrol untuk menghindari cedera.\n   - Sesuaikan beban agar tidak terlalu berat untuk menghindari ketegangan otot.\n\nLatihan leg extension ideal bagi siapa saja yang ingin memperkuat otot paha depan atau menambah variasi pada rutinitas latihan kaki."</string>
+<<<<<<< HEAD
     <string name="body_weight">Body Weight</string>
     <string name="body_height">Body Height</string>
     <string name="male">Male</string>
@@ -80,4 +81,28 @@
     <string name="duration">Duration</string>
     <string name="submit">Submit</string>
     <string name="number_of_exercises">Number of exercises</string>
+=======
+    <string name="tinggi_badan">Tinggi Badan</string>
+    <string name="berat_badan">Berat Badan</string>
+    <string name="jenis_kelamin">Jenis Kelamin</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="start_capture">Start Capture</string>
+    <string name="stop_capture">Stop Capture</string>
+    <string name="scan_icon">Scan Icon</string>
+    <string name="result_image_description" />
+    <string name="result_lable_placeholder">Result Lable Placeholder</string>
+    <string name="retry_button_text">Retry Button Text</string>
+    <string name="pilih_gambar_dari_galeri">Pilih Gambar dari Galeri</string>
+    <string name="title">Title</string>
+    <string name="preview_image">Preview image</string>
+    <string name="subtitle">Subtitle</string>
+    <string name="favorite_icon">Favorite Icon</string>
+    <string name="detail_exercise">Detail Exercise</string>
+    <string name="leg_extension">Leg Extension</string>
+    <string name="manfaat">Manfaat:</string>
+    <string name="cara_melakukan">Cara Melakukan:</string>
+    <string name="tips">Tips:</string>
+    <string name="retry">Retry</string>
+    <string name="galeri">Galeri</string>
+>>>>>>> 3edf99c5fb0c85679d8d267eca60229aeb8073d3
 </resources>

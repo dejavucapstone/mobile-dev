@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -48,16 +49,19 @@
         </LinearLayout>
 
         <!-- Camera Icon -->
-        <ImageView
+        <ImageButton
             android:id="@+id/ic_scan"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="?android:attr/selectableItemBackground"
             android:src="@drawable/ic_scan"
-            android:contentDescription="Scan Icon"
-            android:padding="8dp"
-            android:elevation="2dp"
-            android:layout_marginStart="16dp"
-            android:layout_gravity="center" />
+            android:contentDescription="@string/scan_icon"
+            android:layout_gravity="center"
+            android:textColor="@android:color/black"
+            tools:ignore="RtlHardcoded" />
+
+
+
     </LinearLayout>
 
     <!-- Button Group -->
@@ -99,4 +103,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp" />
+
+    <android.widget.ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:indeterminate="true" />
 </LinearLayout>

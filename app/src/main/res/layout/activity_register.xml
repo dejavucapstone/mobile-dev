@@ -16,11 +16,11 @@
         <!-- Header dengan Back Icon dan Title -->
         <ImageView
             android:id="@+id/back_icon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="9dp"
+            android:layout_height="15dp"
             android:layout_marginTop="50dp"
-            android:src="@drawable/back"
             android:contentDescription="Back Icon"
+            android:src="@drawable/back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -71,6 +71,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
+<<<<<<< HEAD
         <!-- Input Body Weight -->
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_body_weight"
@@ -130,6 +131,18 @@
                 android:text="@string/female"
                 android:textColor="@color/white"/>
         </RadioGroup>
+=======
+        <TextView
+            android:id="@+id/phoneError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:layout_marginTop="5dp"
+            app:layout_constraintTop_toBottomOf="@id/phone"
+            tools:ignore="MissingConstraints" />
+>>>>>>> 3edf99c5fb0c85679d8d267eca60229aeb8073d3
 
 
         <!-- Input Email -->
@@ -149,6 +162,51 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/tinggi_badan"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/tinggi_badan"
+            android:inputType="numberDecimal"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#B0B0B0"
+            android:background="@drawable/rounded_transparent_edittext"
+            android:padding="16dp"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/email_register"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/berat_badan"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/berat_badan"
+            android:inputType="numberDecimal"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#B0B0B0"
+            android:background="@drawable/rounded_transparent_edittext"
+            android:padding="16dp"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/email_register"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/jenis_kelamin"
+            android:background="@drawable/rounded_transparent_edittext"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#B0B0B0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="16dp"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/berat_badan"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
         <!-- Input Password -->
         <LinearLayout
             android:id="@+id/ll_password_layout"
@@ -158,7 +216,11 @@
             android:background="@drawable/rounded_transparent_edittext"
             android:orientation="horizontal"
             android:padding="0dp"
+<<<<<<< HEAD
             app:layout_constraintTop_toBottomOf="@id/et_email_register"
+=======
+            app:layout_constraintTop_toBottomOf="@id/jenis_kelamin"
+>>>>>>> 3edf99c5fb0c85679d8d267eca60229aeb8073d3
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 

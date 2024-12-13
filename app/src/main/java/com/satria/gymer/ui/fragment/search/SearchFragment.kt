@@ -1,6 +1,5 @@
 package com.satria.gymer.ui.fragment.search
 
-import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -8,12 +7,17 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+<<<<<<< HEAD
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+=======
+>>>>>>> 3edf99c5fb0c85679d8d267eca60229aeb8073d3
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+<<<<<<< HEAD
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.satria.gymer.R
@@ -48,13 +52,30 @@ class SearchFragment : Fragment() {
         }
 
     private lateinit var adapter:ItemAdapter
+=======
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import com.satria.gymer.ui.adapter.ExerciseAdapter
+import com.satria.gymer.databinding.FragmentSearchBinding
+import com.satria.gymer.ui.activity.CameraXActivity
+import com.satria.gymer.ui.model.ExcerciseViewModel
+import com.satria.gymer.network.response.DataItem
+import com.satria.gymer.ui.activity.DetailExerciseActivity
+
+class SearchFragment : Fragment() {
+
+    private lateinit var excerciseViewModel: ExcerciseViewModel
+    private var _binding: FragmentSearchBinding? = null
+    private val binding get() = _binding!!
+>>>>>>> 3edf99c5fb0c85679d8d267eca60229aeb8073d3
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_search, container, false)
+    ): View {
+        _binding = FragmentSearchBinding.inflate(inflater, container, false)
 
+<<<<<<< HEAD
         val recyclerView: RecyclerView = view.findViewById(R.id.recycler_view)
 
         adapter = ItemAdapter(
@@ -65,14 +86,71 @@ class SearchFragment : Fragment() {
 
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapter
+=======
+        // Initialize ViewModel
+        excerciseViewModel = ViewModelProvider(this).get(ExcerciseViewModel::class.java)
 
-        view.findViewById<ImageView>(R.id.ic_scan).setOnClickListener {
-            checkCameraPermission()
+        // Setup RecyclerView
+        binding.recyclerView.layoutManager = LinearLayoutManager(activity)
+
+        // Observe the exercise data
+        excerciseViewModel.excerciseData.observe(viewLifecycleOwner, { exercises ->
+            // Handle API response data
+            if (exercises != null && exercises.isNotEmpty()) {
+                Log.d("SearchFragment", "API Response: ${exercises.size} items received")
+                binding.recyclerView.adapter = ExerciseAdapter(exercises) { exercise ->
+                    // Handle item click here (open DetailExerciseActivity)
+                    val intent = Intent(activity, DetailExerciseActivity::class.java)
+                    intent.putExtra("EXERCISE_ID", exercise.idExercise) // Mengirim ID latihan
+                    startActivity(intent)
+                }
+            } else {
+                Log.d("SearchFragment", "No exercises found in API response")
+                // Optionally show a message when no exercises are found
+            }
+        })
+
+        // Observe loading state
+        excerciseViewModel.isLoading.observe(viewLifecycleOwner, { isLoading ->
+            // Show or hide loading indicator based on isLoading
+            if (isLoading) {
+                binding.progressBar.visibility = View.VISIBLE  // Show progress bar
+            } else {
+                binding.progressBar.visibility = View.GONE  // Hide progress bar
+            }
+        })
+
+        // Observe error state
+        excerciseViewModel.isError.observe(viewLifecycleOwner, { isError ->
+            // Handle error state
+            if (isError) {
+                // Display error message
+                Log.e("SearchFragment", "Error: ${excerciseViewModel.errorMessage}")
+                // Optionally show error message to user
+            }
+        })
+
+        // Handle camera scan button click
+        binding.icScan.setOnClickListener {
+            if (ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.CAMERA)
+                == PackageManager.PERMISSION_GRANTED) {
+                val intent = Intent(activity, CameraXActivity::class.java)
+                startActivity(intent)
+            } else {
+                ActivityCompat.requestPermissions(
+                    requireActivity(), arrayOf(android.Manifest.permission.CAMERA), 10
+                )
+            }
         }
+>>>>>>> 3edf99c5fb0c85679d8d267eca60229aeb8073d3
 
-        return view
+        // Trigger API call to fetch data (e.g., search by category or general fetch)
+        excerciseViewModel.getExcerciseData()
+
+        return binding.root
     }
 
+<<<<<<< HEAD
     override fun onStart() {
         super.onStart()
         val loadingDialog = LoadingDialogUtils(requireContext())
@@ -147,5 +225,10 @@ class SearchFragment : Fragment() {
     private fun openCameraActivity() {
         val intent = Intent(requireContext(), CameraXActivity::class.java)
         startActivity(intent)
+=======
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+>>>>>>> 3edf99c5fb0c85679d8d267eca60229aeb8073d3
     }
 }

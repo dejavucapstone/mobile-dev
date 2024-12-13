@@ -1,33 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:gravity="center_vertical"
+    android:id="@+id/recycler_view_exercise">
+
+    <!-- Icon -->
+    <ImageView
+        android:id="@+id/item_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_transparent_edittext"
+        android:contentDescription="@string/preview_image"
+        android:src="@drawable/ic_launcher_background" />
+
+    <!-- Text -->
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="8dp"
-        android:gravity="center_vertical">
-
-        <!-- Icon -->
-
-        <!-- Text -->
-        <ImageView
-            android:id="@+id/item_icon"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/rounded_transparent_edittext"
-            android:src="@drawable/ic_launcher_background" />
-
-        <!-- Favorite Icon -->
+        android:padding="8dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="23dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="8dp">
+            android:layout_weight="1"
+            android:orientation="vertical">
 
+<<<<<<< HEAD
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -60,8 +65,33 @@
 <!--                android:layout_gravity="center_vertical"-->
 <!--                android:contentDescription="Favorite Icon"-->
 <!--                android:src="@drawable/ic_star_outline" />-->
+=======
+            <TextView
+                android:id="@+id/item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="@string/title"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+>>>>>>> 3edf99c5fb0c85679d8d267eca60229aeb8073d3
 
+            <TextView
+                android:id="@+id/item_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/subtitle"
+                android:textColor="#808080"
+                android:textSize="14sp" />
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/item_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/favorite_icon"
+            android:src="@drawable/ic_star_outline" />
     </LinearLayout>
-
-
+</LinearLayout>

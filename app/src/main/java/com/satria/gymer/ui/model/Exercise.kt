@@ -1,9 +1,12 @@
 package com.satria.gymer.ui.model
 
 data class Exercise(
-    val name: String,
-    val date: String,
-    val duration: String,
-    val set: String,
-    val weight: String
+    val id_exercise: Int,
+    val nama_alat: String,
+    val bagian_tubuh: String,
+    val gambar: String,
+    val nama_exercise: String,
+    val description: String,
+    val how_to_do: String,
+    val training_tips: String
 )

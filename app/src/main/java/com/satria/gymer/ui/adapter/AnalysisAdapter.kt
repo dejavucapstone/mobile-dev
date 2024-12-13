@@ -8,7 +8,7 @@ import com.satria.gymer.databinding.ItemAnalysisBinding
 import com.satria.gymer.ui.model.AnalysisItem
 
 class AnalysisAdapter(
-    private val analysisList: MutableList<AnalysisItem>, // Use MutableList for updates
+    private val analysisList: MutableList<AnalysisItem>,
     private val onItemClick: (AnalysisItem) -> Unit
 ) : RecyclerView.Adapter<AnalysisAdapter.AnalysisViewHolder>() {
 
@@ -16,7 +16,6 @@ class AnalysisAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(analysisItem: AnalysisItem) {
-            // Bind the data to the views using ViewBinding
             binding.itemTitle.text = analysisItem.title
             binding.itemSubtitle.text = analysisItem.subtitle
             binding.itemIcon.setImageResource(analysisItem.iconResId)
@@ -24,19 +23,16 @@ class AnalysisAdapter(
                 if (analysisItem.isFavorite) R.drawable.ic_star_filled else R.drawable.ic_star_outline
             )
 
-            // Handle the favorite click event
             binding.itemFavorite.setOnClickListener {
                 analysisItem.isFavorite = !analysisItem.isFavorite
                 binding.itemFavorite.setImageResource(
                     if (analysisItem.isFavorite) R.drawable.ic_star_filled else R.drawable.ic_star_outline
                 )
-                // Notify the adapter that the item has changed
                 notifyItemChanged(adapterPosition)
             }
 
-            // Handle the item click event to navigate to the detail activity
             itemView.setOnClickListener {
-                onItemClick(analysisItem) // Trigger the item click callback
+                onItemClick(analysisItem)
             }
         }
     }
