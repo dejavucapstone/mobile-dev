@@ -42,6 +42,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
 }
 
 dependencies {
@@ -63,11 +64,24 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
     implementation("com.google.guava:guava:30.1-android")
-    implementation("androidx.camera:camera-camera2:1.0.0")
-    implementation("androidx.camera:camera-lifecycle:1.0.0")
-    implementation("androidx.camera:camera-view:1.0.0")
-    implementation("com.github.bumptech.glide:glide:4.15.1")
-    annotationProcessor("com.github.bumptech.glide:compiler:4.15.1")
+
+    implementation(libs.tensorflow.lite)
+    implementation(libs.tensorflow.lite.support.v043)
+    implementation(libs.tensorflow.lite.task.vision)
+
+    implementation(libs.androidx.camera.camera2)
+    implementation(libs.androidx.camera.core)
+    implementation(libs.androidx.camera.lifecycle.v100)
+    implementation(libs.androidx.camera.view.v100)
+    implementation(libs.glide)
+
+    implementation(libs.androidx.activity)
+    annotationProcessor(libs.compiler)
+    implementation("com.google.mlkit:object-detection:17.0.2")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.android)
     implementation(libs.tensorflow.lite.support)

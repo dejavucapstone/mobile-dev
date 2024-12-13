@@ -1,8 +1,8 @@
 package com.satria.gymer.ui.model
 
 data class Item(
-    val icon: Int,
+    val icon: String,
     val title: String,
     val subtitle: String,
-    var isFavorite: Boolean
+    var isFavorite: Boolean = false
 )

@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.lifecycle.ProcessCameraProvider
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.satria.gymer.R
 import java.io.File
@@ -29,12 +28,11 @@ class CameraXActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera_x)
 
+        // Memastikan izin kamera diberikan
         if (allPermissionsGranted()) {
             startCamera()
         } else {
-            ActivityCompat.requestPermissions(
-                this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS
-            )
+            requestPermissions(REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
         }
 
         findViewById<ImageButton>(R.id.capture).setOnClickListener {
@@ -53,9 +51,7 @@ class CameraXActivity : AppCompatActivity() {
             val preview = androidx.camera.core.Preview.Builder()
                 .build()
                 .also {
-                    it.setSurfaceProvider(
-                        findViewById<androidx.camera.view.PreviewView>(R.id.previewView).surfaceProvider
-                    )
+                    it.surfaceProvider = findViewById<androidx.camera.view.PreviewView>(R.id.previewView).surfaceProvider
                 }
 
             imageCapture = ImageCapture.Builder().build()
@@ -94,16 +90,11 @@ class CameraXActivity : AppCompatActivity() {
 
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     val savedUri = Uri.fromFile(photoFile)
-                    Toast.makeText(this@CameraXActivity, "Photo captured!", Toast.LENGTH_SHORT).show()
-                    goToPauseScreen(savedUri.toString())
+                    val intent = Intent(this@CameraXActivity, HasilKlasifikasiKameraActivity::class.java)
+                    intent.putExtra("imageUri", savedUri.toString())
+                    startActivity(intent)
                 }
             })
-    }
-
-    private fun goToPauseScreen(imageUri: String) {
-        val intent = Intent(this, CameraPauseScreenActivity::class.java)
-        intent.putExtra("imageUri", imageUri)
-        startActivity(intent)
     }
 
     private fun getOutputDirectory(): File {

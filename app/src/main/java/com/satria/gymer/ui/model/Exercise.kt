@@ -5,5 +5,6 @@ data class Exercise(
     val date: String,
     val duration: String,
     val set: String,
-    val weight: String
+    val weight: String,
+    val description: String
 )

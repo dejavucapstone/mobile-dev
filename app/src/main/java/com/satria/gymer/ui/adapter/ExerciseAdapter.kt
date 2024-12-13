@@ -3,30 +3,30 @@ package com.satria.gymer.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.satria.gymer.ui.model.Exercise
-import com.satria.gymer.databinding.ItemExerciseBinding
+import com.satria.gymer.databinding.ItemListBinding
+import com.satria.gymer.network.response.DataExercises
 
-class ExerciseAdapter(private val exerciseList: List<Exercise>) : RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder>() {
+class ExerciseAdapter(private val exercises: List<DataExercises>) :
+    RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExerciseViewHolder {
-        val binding = ItemExerciseBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ExerciseViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ExerciseViewHolder, position: Int) {
-        val exercise = exerciseList[position]
+        val exercise = exercises[position]
         holder.bind(exercise)
     }
 
-    override fun getItemCount(): Int = exerciseList.size
+    override fun getItemCount(): Int = exercises.size
 
-    inner class ExerciseViewHolder(private val binding: ItemExerciseBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(exercise: Exercise) {
-            binding.tvExerciseName.text = exercise.name
-            binding.tvExerciseDate.text = exercise.date
-            binding.tvExerciseDuration.text = exercise.duration
-            binding.tvExerciseSet.text = exercise.set
-            binding.tvExerciseWeight.text = exercise.weight
+    class ExerciseViewHolder(private val binding: ItemListBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(exercise: DataExercises) {
+            binding.itemTitle.text = exercise.name
+            binding.itemSubtitle.text = exercise.description
+            // Jika Anda memiliki ikon atau gambar, Anda bisa menambahkannya di sini
+            // binding.itemIcon.setImageResource(exercise.icon)
         }
     }
 }
