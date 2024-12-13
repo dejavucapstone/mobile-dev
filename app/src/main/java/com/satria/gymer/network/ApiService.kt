@@ -1,6 +1,6 @@
 package com.satria.gymer.network
 
-import com.satria.gymer.network.response.DataExercises
+import com.satria.gymer.network.response.ExcerciseResponse
 import com.satria.gymer.network.response.DataHistories
 import com.satria.gymer.network.response.DataItems
 import com.satria.gymer.network.response.DetailHistoryResponse
@@ -21,6 +21,7 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiService {
 
@@ -38,8 +39,11 @@ interface ApiService {
     fun resetPassword(@Body body: ReqBodyResetPass): Call<ResetPassResp>
 
     // Exercise
-    @GET("exercise")
-    fun getExercises(): Call<List<DataExercises>>
+    @GET("/api/excercise") // Replace with your actual endpoint
+    fun getExercises(
+        @Query("key") key: String = ApiConfig.API_KEY, // Add your API key if necessary
+        @Query("category") category: String? = null, // Optional, add if necessary
+    ): Call<ExcerciseResponse>
 
     @GET("exercise/{id_exercise}")
     fun getExerciseById(@Path("id_exercise") id: Int): Call<DataItems>

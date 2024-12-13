@@ -45,6 +45,13 @@ class HasilKlasifikasiKameraActivity : AppCompatActivity() {
             Toast.makeText(this, "No image found", Toast.LENGTH_SHORT).show()
         }
 
+        findViewById<Button>(R.id.btnRetry).setOnClickListener {
+            // Kembali ke CameraXActivity
+            val intent = Intent(this, CameraXActivity::class.java)
+            startActivity(intent)
+            finish() // Optional: Untuk menutup HasilKlasifikasiKameraActivity agar tidak kembali ke sini saat tombol back ditekan
+        }
+
         // Tombol untuk memilih gambar dari galeri
         findViewById<Button>(R.id.btn_select_image).setOnClickListener {
             openGallery()

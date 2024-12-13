@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
@@ -18,14 +19,14 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Back button and title -->
             <LinearLayout
                 android:id="@+id/headerLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="30dp"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="16dp"
+                tools:ignore="UseCompoundDrawables">
 
                 <ImageView
                     android:id="@+id/backButton"
@@ -39,23 +40,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Detail Exercise"
+                    android:text="@string/detail_exercise"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
 
-            <!-- Exercise Title -->
             <TextView
                 android:id="@+id/exerciseTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:text="Leg Extension"
+                android:text="@string/leg_extension"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <!-- Image/Placeholder -->
             <View
                 android:id="@+id/imagePlaceholder"
                 android:layout_width="match_parent"
@@ -63,31 +62,20 @@
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/ic_launcher_background" />
 
-            <!-- Description -->
-            <TextView
-                android:id="@+id/descriptionTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="Deskripsi:"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
             <TextView
                 android:id="@+id/descriptionText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:text="Latihan leg extension adalah latihan isolasi..."
+                android:text="@string/latihan_leg_extension_adalah_latihan_isolasi"
                 android:textSize="14sp" />
 
-            <!-- Benefits Section -->
             <TextView
                 android:id="@+id/benefitsTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="Manfaat:"
+                android:text="@string/manfaat"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -96,7 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:text="1. Menguatkan Quadriceps...\n2. Meningkatkan Stabilitas Lutut..."
+                android:text="@string/_1_menguatkan_quadriceps_n2_meningkatkan_stabilitas_lutut"
                 android:textSize="14sp" />
 
             <!-- How to Perform Section -->
@@ -105,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="Cara Melakukan:"
+                android:text="@string/cara_melakukan"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -114,7 +102,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:text="1. Posisi Awal: Duduk di mesin..."
+                android:text="@string/_1_posisi_awal_duduk_di_mesin"
                 android:textSize="14sp" />
 
             <!-- Tips Section -->
@@ -123,7 +111,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="Tips:"
+                android:text="@string/tips"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -131,11 +119,9 @@
                 android:id="@+id/tipsText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1. Kontrol gerakan secara perlahan..."
+                android:text="@string/_1_kontrol_gerakan_secara_perlahan"
                 android:textSize="14sp" />
-
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

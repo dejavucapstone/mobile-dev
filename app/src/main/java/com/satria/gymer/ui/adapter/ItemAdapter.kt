@@ -4,40 +4,28 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.satria.gymer.R
 import com.satria.gymer.databinding.ItemListBinding
-import com.satria.gymer.network.response.DataExercises
-import com.satria.gymer.ui.model.Item
+import com.satria.gymer.network.response.DataItem  // Use DataItem instead of DataExercises
 
 class ItemAdapter(
-    private val items: List<DataExercises>,  // Gunakan DataExercises di sini
-    private val onItemClick: (DataExercises) -> Unit  // Fungsi klik untuk Item
+    private val items: List<DataItem>,  // Use DataItem here
+    private val onItemClick: (DataItem) -> Unit  // Function to handle item click
 ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     inner class ItemViewHolder(private val binding: ItemListBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: DataExercises) {
-            binding.itemTitle.text = item.name
-            binding.itemSubtitle.text = item.description
-            // Menggunakan Glide atau Picasso untuk memuat gambar
+        fun bind(item: DataItem) {
+            // Bind the properties of DataItem
+            binding.itemTitle.text = item.namaExercise  // Using the property from DataItem
+            binding.itemSubtitle.text = item.description // Using description from DataItem
             Glide.with(binding.itemIcon.context)
-                .load(item.imageUrl)  // Sesuaikan dengan URL gambar atau resource
+                .load(item.gambar)  // Use 'gambar' URL to load the image
                 .into(binding.itemIcon)
 
-            // Favorite icon action
-            binding.itemFavorite.setImageResource(
-                if (item.isFavorite) R.drawable.ic_star_filled else R.drawable.ic_star_outline
-            )
-
-            binding.itemFavorite.setOnClickListener {
-                item.isFavorite = !item.isFavorite
-                binding.itemFavorite.setImageResource(
-                    if (item.isFavorite) R.drawable.ic_star_filled else R.drawable.ic_star_outline
-                )
-                onItemClick(item)
-            }
+            // If there's any other logic, like handling a favorite status, you can add it here
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -52,4 +40,3 @@ class ItemAdapter(
 
     override fun getItemCount(): Int = items.size
 }
-

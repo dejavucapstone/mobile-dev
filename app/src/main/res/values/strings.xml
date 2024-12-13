@@ -80,4 +80,15 @@
     <string name="result_lable_placeholder">Result Lable Placeholder</string>
     <string name="retry_button_text">Retry Button Text</string>
     <string name="pilih_gambar_dari_galeri">Pilih Gambar dari Galeri</string>
+    <string name="title">Title</string>
+    <string name="preview_image">Preview image</string>
+    <string name="subtitle">Subtitle</string>
+    <string name="favorite_icon">Favorite Icon</string>
+    <string name="detail_exercise">Detail Exercise</string>
+    <string name="leg_extension">Leg Extension</string>
+    <string name="manfaat">Manfaat:</string>
+    <string name="cara_melakukan">Cara Melakukan:</string>
+    <string name="tips">Tips:</string>
+    <string name="retry">Retry</string>
+    <string name="galeri">Galeri</string>
 </resources>
