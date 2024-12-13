@@ -7,6 +7,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.satria.gymer.R
+import com.satria.gymer.utils.SharedPrefUtils
 
 @SuppressLint("CustomSplashScreen")
 @Suppress("DEPRECATION")
@@ -17,7 +18,12 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this,
+                if(SharedPrefUtils.getAuthToken(this@SplashActivity)!="")
+                    MainActivity::class.java
+                else
+                    LoginActivity::class.java
+            )
             startActivity(intent)
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
             finish()

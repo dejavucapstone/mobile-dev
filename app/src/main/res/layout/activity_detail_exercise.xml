@@ -40,6 +40,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:text="Detail Exercise"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -52,11 +53,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:text="Leg Extension"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <!-- Image/Placeholder -->
-            <View
+            <ImageView
                 android:id="@+id/imagePlaceholder"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
@@ -70,6 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:text="Deskripsi:"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -78,6 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                android:textColor="@color/black"
                 android:text="Latihan leg extension adalah latihan isolasi..."
                 android:textSize="14sp" />
 
@@ -87,6 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
+                android:textColor="@color/black"
                 android:text="Manfaat:"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -96,6 +101,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                android:textColor="@color/black"
                 android:text="1. Menguatkan Quadriceps...\n2. Meningkatkan Stabilitas Lutut..."
                 android:textSize="14sp" />
 
@@ -105,6 +111,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
+                android:textColor="@color/black"
                 android:text="Cara Melakukan:"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -114,6 +121,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                android:textColor="@color/black"
                 android:text="1. Posisi Awal: Duduk di mesin..."
                 android:textSize="14sp" />
 
@@ -123,6 +131,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
+                android:textColor="@color/black"
                 android:text="Tips:"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -131,6 +140,7 @@
                 android:id="@+id/tipsText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="1. Kontrol gerakan secara perlahan..."
                 android:textSize="14sp" />
 

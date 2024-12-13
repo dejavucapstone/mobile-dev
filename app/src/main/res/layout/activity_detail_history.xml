@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <!-- Title Section with Back Icon and Action Buttons -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_vertical">
+
+        <!-- Back Icon -->
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_back_black"
+            android:contentDescription="Back Icon"
+            android:layout_marginEnd="8dp"/>
+
+        <!-- Title Text -->
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="Latihan Jum'at"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_weight="1"/>
+
+        <!-- Share Button -->
+        <ImageView
+            android:id="@+id/btn_share"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_share"
+            android:contentDescription="Share Button"
+            android:background="@drawable/background_share"
+            android:layout_marginEnd="16dp"/>
+
+        <!-- Delete Button -->
+        <ImageView
+            android:id="@+id/btn_delete"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_trash"
+            android:background="@drawable/background_trash"
+            android:contentDescription="Delete Button"/>
+    </LinearLayout>
+
+    <!-- Exercise Title -->
+    <TextView
+        android:id="@+id/tv_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10h 30m"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- RecyclerView for List of Exercises -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/exercise_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        tools:listitem="@layout/item_exercise"/>
+
+</LinearLayout>

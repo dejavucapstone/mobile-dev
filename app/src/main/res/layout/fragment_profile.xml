@@ -153,6 +153,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Purchase"
+        android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginBottom="8dp"/>
@@ -239,6 +240,7 @@
         android:layout_height="wrap_content"
         android:text="Terms of Use"
         android:textSize="18sp"
+        android:textColor="@color/black"
         android:textStyle="bold"
         android:layout_marginBottom="8dp"/>
 

@@ -1,12 +1,11 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.kotlin.kapt")
 }
 
 android {
     namespace = "com.satria.gymer"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.satria.gymer"
@@ -41,38 +40,36 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
 
-    implementation(libs.androidx.fragment.ktx)
-    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.monitor)
-    implementation(libs.androidx.junit.ktx)
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("com.google.android.material:material:1.9.0")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.10")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
-    implementation("com.google.guava:guava:30.1-android")
-    implementation("androidx.camera:camera-camera2:1.0.0")
-    implementation("androidx.camera:camera-lifecycle:1.0.0")
-    implementation("androidx.camera:camera-view:1.0.0")
-    implementation("com.github.bumptech.glide:glide:4.15.1")
-    annotationProcessor("com.github.bumptech.glide:compiler:4.15.1")
-    implementation(libs.androidx.navigation.ui.ktx)
-    implementation(libs.androidx.lifecycle.viewmodel.android)
-    implementation(libs.tensorflow.lite.support)
-    implementation(libs.tensorflow.lite.metadata)
-    implementation(libs.androidx.camera.view)
-    implementation(libs.firebase.inappmessaging)
-    implementation(libs.androidx.camera.lifecycle)
+    implementation(libs.material)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation(libs.glide)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.camera.core)
+    implementation(libs.camera.camera2)
+    implementation(libs.camera.view)
+    implementation(libs.camera.lifecycle)
+    implementation(libs.okhttp)
+
+    implementation(libs.tensorflow.lite)
+    implementation(libs.tensorflow.lite.support)
+    implementation(libs.tensorflow.lite.metadata)
 
 }

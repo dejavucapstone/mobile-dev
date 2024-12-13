@@ -6,8 +6,19 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.Gson
 import com.satria.gymer.R
+import com.satria.gymer.data.model.ErrorResponse
+import com.satria.gymer.data.model.forgotpassword.ForgotPasswordRequest
+import com.satria.gymer.data.model.forgotpassword.ForgotPasswordResponse
+import com.satria.gymer.data.model.resetpassword.ResetPasswordRequest
+import com.satria.gymer.data.model.resetpassword.ResetPasswordResponse
+import com.satria.gymer.data.network.ApiConfig
 import com.satria.gymer.databinding.ActivityResetPasswordBinding
+import com.satria.gymer.utils.LoadingDialogUtils
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ResetPasswordActivity : AppCompatActivity() {
 
@@ -28,30 +39,62 @@ class ResetPasswordActivity : AppCompatActivity() {
         // Logika visibilitas password
         setupPasswordVisibilityToggle()
 
+        val email = intent.getStringExtra("email")!!
+
         // Logika tombol konfirmasi
         binding.continueButton.setOnClickListener {
             val newPassword = binding.newPassword.text.toString().trim()
-            val confirmPassword = binding.confirmPassword.text.toString().trim()
+            val resetCode = binding.resetCode.text.toString().trim()
 
             when {
                 newPassword.isEmpty() -> {
                     showToast("Password baru tidak boleh kosong.")
                 }
-                confirmPassword.isEmpty() -> {
+                resetCode.isEmpty() -> {
                     showToast("Konfirmasi password tidak boleh kosong.")
-                }
-                newPassword != confirmPassword -> {
-                    showToast("Password dan konfirmasi password tidak cocok.")
                 }
                 newPassword.length < 8 -> {
                     showToast("Password harus lebih dari 8 karakter.")
                 }
                 else -> {
-                    showToast("Password berhasil diubah!")
-                    // Menavigasi ke halaman login setelah password diubah
-                    val intent = Intent(this, LoginActivity::class.java)
-                    startActivity(intent)
-                    finish() // Menutup ResetPasswordActivity setelah pindah ke halaman login
+                    val loadingDialog = LoadingDialogUtils(this)
+
+                    loadingDialog.show()
+                    val client = ApiConfig.getApiService().resetPassword(
+                        ResetPasswordRequest(email, resetCode, newPassword)
+                    )
+                    client.enqueue(object : Callback<ResetPasswordResponse> {
+                        override fun onResponse(
+                            call: Call<ResetPasswordResponse>,
+                            response: Response<ResetPasswordResponse>
+                        ) {
+                            loadingDialog.dismiss()
+                            if (response.isSuccessful) {
+                                response.body()?.let { forgotResponse ->
+                                    showToast("Password berhasil diubah!")
+                                    // Menavigasi ke halaman login setelah password diubah
+                                    val intent = Intent(this@ResetPasswordActivity, LoginActivity::class.java)
+                                    startActivity(intent)
+                                    finish() // Menutup ResetPasswordActivity setelah pindah ke halaman login
+                                }
+                            } else {
+                                val errorBody = response.errorBody()?.string()
+                                errorBody?.let {
+                                    try {
+                                        val errorResponse = Gson().fromJson(it, ErrorResponse::class.java)
+                                        Toast.makeText(this@ResetPasswordActivity, errorResponse.message, Toast.LENGTH_SHORT).show()
+                                    } catch (e: Exception) {
+                                        e.printStackTrace()
+                                    }
+                                }
+                            }
+                        }
+
+                        override fun onFailure(call: Call<ResetPasswordResponse>, t: Throwable) {
+                            loadingDialog.dismiss()
+                        }
+                    })
+
                 }
             }
         }
@@ -61,11 +104,6 @@ class ResetPasswordActivity : AppCompatActivity() {
         // Toggle visibility for new password
         binding.toggleNewPasswordVisibility.setOnClickListener {
             togglePasswordVisibility(binding.newPassword, binding.toggleNewPasswordVisibility)
-        }
-
-        // Toggle visibility for confirm password
-        binding.toggleConfirmPasswordVisibility.setOnClickListener {
-            togglePasswordVisibility(binding.confirmPassword, binding.toggleConfirmPasswordVisibility)
         }
     }
 

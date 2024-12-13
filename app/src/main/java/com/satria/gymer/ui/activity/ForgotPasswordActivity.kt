@@ -7,41 +7,82 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.Gson
 import com.satria.gymer.R
+import com.satria.gymer.data.model.ErrorResponse
+import com.satria.gymer.data.model.forgotpassword.ForgotPasswordRequest
+import com.satria.gymer.data.model.forgotpassword.ForgotPasswordResponse
+import com.satria.gymer.data.model.register.RegisterRequest
+import com.satria.gymer.data.model.register.RegisterResponse
+import com.satria.gymer.data.network.ApiConfig
+import com.satria.gymer.databinding.ActivityForgotPasswordBinding
+import com.satria.gymer.databinding.ActivityRegisterBinding
+import com.satria.gymer.utils.LoadingDialogUtils
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ForgotPasswordActivity : AppCompatActivity() {
-
+    private lateinit var binding: ActivityForgotPasswordBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_forgot_password) // Pastikan layout ini benar
+        binding = ActivityForgotPasswordBinding.inflate(layoutInflater)
+        setContentView(binding.root) // Pastikan layout ini benar
 
         // Mendapatkan referensi elemen UI
-        val backIcon: ImageView = findViewById(R.id.backIcon)
-        val emailInput: EditText = findViewById(R.id.emailInput)
-        val sendEmailButton: ImageButton = findViewById(R.id.sendEmailButton) // Corrected here
 
         // Navigasi kembali ketika ikon "kembali" diklik
-        backIcon.setOnClickListener {
+        binding.backIcon.setOnClickListener {
             finish() // Menutup aktivitas saat tombol kembali diklik
         }
 
+        val loadingDialog = LoadingDialogUtils(this)
+
         // Logika tombol "Kirim Email"
-        sendEmailButton.setOnClickListener {
-            val email = emailInput.text.toString().trim()
+        binding.sendEmailButton.setOnClickListener {
+            val email = binding.emailInput.text.toString().trim()
             if (email.isNotEmpty()) {
                 if (isValidEmail(email)) {
-                    // Menampilkan pesan bahwa email valid dan mengarahkan ke halaman verifikasi email
-                    Toast.makeText(this, "Permintaan reset password terkirim ke $email", Toast.LENGTH_SHORT).show()
 
-                    // Pindah ke EmailVerificationActivity
-                    val intent = Intent(this, EmailVerificationActivity::class.java)
-                    startActivity(intent)
+                    loadingDialog.show()
+                    val client = ApiConfig.getApiService().forgotPassword(
+                        ForgotPasswordRequest(email)
+                    )
+                    client.enqueue(object : Callback<ForgotPasswordResponse> {
+                        override fun onResponse(
+                            call: Call<ForgotPasswordResponse>,
+                            response: Response<ForgotPasswordResponse>
+                        ) {
+                            loadingDialog.dismiss()
+                            if (response.isSuccessful) {
+                                response.body()?.let { forgotResponse ->
+                                    Toast.makeText(this@ForgotPasswordActivity, "Permintaan reset password terkirim ke $email", Toast.LENGTH_SHORT).show()
+                                    val intent = Intent(this@ForgotPasswordActivity, ResetPasswordActivity::class.java).putExtra("email",email)
+                                    startActivity(intent)
+                                }
+                            } else {
+                                val errorBody = response.errorBody()?.string()
+                                errorBody?.let {
+                                    try {
+                                        val errorResponse = Gson().fromJson(it, ErrorResponse::class.java)
+                                        Toast.makeText(this@ForgotPasswordActivity, errorResponse.message, Toast.LENGTH_SHORT).show()
+                                    } catch (e: Exception) {
+                                        e.printStackTrace()
+                                    }
+                                }
+                            }
+                        }
+
+                        override fun onFailure(call: Call<ForgotPasswordResponse>, t: Throwable) {
+                            loadingDialog.dismiss()
+                        }
+                    })
                 } else {
-                    emailInput.error = "Masukkan email yang valid"
+                    binding.emailInput.error = "Masukkan email yang valid"
                 }
             } else {
                 // Menampilkan pesan kesalahan jika email kosong
-                emailInput.error = "Email tidak boleh kosong"
+                binding.emailInput.error = "Email tidak boleh kosong"
             }
         }
     }

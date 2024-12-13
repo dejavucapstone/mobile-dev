@@ -6,9 +6,20 @@ import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.Gson
 import com.satria.gymer.R
+import com.satria.gymer.data.model.ErrorResponse
+import com.satria.gymer.data.model.login.LoginRequest
+import com.satria.gymer.data.model.login.LoginResponse
+import com.satria.gymer.data.network.ApiConfig
 import com.satria.gymer.databinding.ActivityLoginBinding
+import com.satria.gymer.utils.LoadingDialogUtils
+import com.satria.gymer.utils.SharedPrefUtils
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
 
@@ -22,6 +33,8 @@ class LoginActivity : AppCompatActivity() {
         // Toggle password visibility
         setupPasswordToggle(binding.password, binding.eyeIconPassword)
 
+        val loadingDialog = LoadingDialogUtils(this)
+
         // Handle Login Button
         binding.loginButton.setOnClickListener {
             val email = binding.email.text.toString().trim()
@@ -29,11 +42,37 @@ class LoginActivity : AppCompatActivity() {
 
             if (email.isEmpty() || password.isEmpty()) {
                 showToast("Please fill in all fields")
-            } else if (password.length < 8) {
-                showToast("Password must be at least 8 characters")
             } else {
-                showToast("Login successful!")
-                navigateToMainActivity()
+                loadingDialog.show()
+                val client = ApiConfig.getApiService().loginUser(LoginRequest(email,password))
+                client.enqueue(object : Callback<LoginResponse> {
+                    override fun onResponse(
+                        call: Call<LoginResponse>,
+                        response: Response<LoginResponse>
+                    ) {
+                        loadingDialog.dismiss()
+                        if (response.isSuccessful) {
+                            response.body()?.let { loginResponse ->
+                                SharedPrefUtils.saveAuthToken(this@LoginActivity, loginResponse.data.token)
+                                navigateToMainActivity()
+                            }
+                        } else {
+                            val errorBody = response.errorBody()?.string()
+                            errorBody?.let {
+                                try {
+                                    val errorResponse = Gson().fromJson(it, ErrorResponse::class.java)
+                                    showToast(errorResponse.message)
+                                } catch (e: Exception) {
+                                    e.printStackTrace()
+                                }
+                            }
+                        }
+                    }
+
+                    override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                        loadingDialog.dismiss()
+                    }
+                })
             }
         }
 

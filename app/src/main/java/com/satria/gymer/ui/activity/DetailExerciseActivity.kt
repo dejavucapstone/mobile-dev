@@ -3,37 +3,74 @@ package com.satria.gymer.ui.activity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
+import com.google.gson.Gson
 import com.satria.gymer.R
+import com.satria.gymer.data.model.ErrorResponse
+import com.satria.gymer.data.model.exercise.DetailExerciseResponse
+import com.satria.gymer.data.model.history.DetailHistoryResponse
+import com.satria.gymer.data.network.ApiConfig
+import com.satria.gymer.databinding.ActivityDetailExerciseBinding
+import com.satria.gymer.databinding.ActivityDetailHistoryBinding
+import com.satria.gymer.utils.LoadingDialogUtils
+import com.satria.gymer.utils.SharedPrefUtils
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class DetailExerciseActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityDetailExerciseBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail_exercise)
-
-        val backButton: ImageView = findViewById(R.id.backButton)
-        val screenTitle: TextView = findViewById(R.id.screenTitle)
-        val exerciseTitle: TextView = findViewById(R.id.exerciseTitle)
-        val descriptionText: TextView = findViewById(R.id.descriptionText)
-        val benefitsText: TextView = findViewById(R.id.benefitsText)
-        val howToPerformText: TextView = findViewById(R.id.howToPerformText)
-        val tipsText: TextView = findViewById(R.id.tipsText)
-
-        // Retrieve the data from the intent
-        val title = intent.getStringExtra("EXERCISE_TITLE") ?: "No Title"
-        val description = intent.getStringExtra("EXERCISE_DESCRIPTION") ?: "No Description"
-
-        // Set the values into the views
-        exerciseTitle.text = title
-        descriptionText.text = description
-        benefitsText.text = "1. Benefit 1\n2. Benefit 2"
-        howToPerformText.text = "Steps to perform the exercise"
-        tipsText.text = "Tips for better performance"
-
-        // Set the back button functionality
-        backButton.setOnClickListener {
-            finish() // Close the activity and return to the previous screen
+        binding = ActivityDetailExerciseBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        val id = intent.getStringExtra("id")!!
+        with(binding){
+            backButton.setOnClickListener {
+                finish()
+            }
         }
+        val loadingDialog = LoadingDialogUtils(this)
+
+        loadingDialog.show()
+        val client = ApiConfig.getApiService(SharedPrefUtils.getAuthToken(this))
+            .getDetailExercises(id)
+        client.enqueue(object : Callback<DetailExerciseResponse> {
+            override fun onResponse(
+                call: Call<DetailExerciseResponse>,
+                response: Response<DetailExerciseResponse>
+            ) {
+                loadingDialog.dismiss()
+                if (response.isSuccessful) {
+                    response.body()?.let { exerciseResponse ->
+                        with(binding){
+                            exerciseTitle.text = exerciseResponse.data.exerciseName
+                            Glide.with(this@DetailExerciseActivity).load(exerciseResponse.data.imageUrl).into(imagePlaceholder)
+                            descriptionText.text = exerciseResponse.data.description
+                            benefitsText.text = exerciseResponse.data.bodyPart
+                            howToPerformText.text = exerciseResponse.data.howToDo
+                            tipsText.text = exerciseResponse.data.trainingTips
+                        }
+                    }
+                } else {
+                    val errorBody = response.errorBody()?.string()
+                    errorBody?.let {
+                        try {
+                            val errorResponse = Gson().fromJson(it, ErrorResponse::class.java)
+                            Toast.makeText(this@DetailExerciseActivity,errorResponse.message, Toast.LENGTH_SHORT).show()
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                        }
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<DetailExerciseResponse>, t: Throwable) {
+                loadingDialog.dismiss()
+            }
+        })
     }
 }

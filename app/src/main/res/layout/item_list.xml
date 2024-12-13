@@ -53,13 +53,13 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/item_favorite"
-                android:layout_width="wrap_content"
-                android:layout_height="24dp"
-                android:layout_gravity="center_vertical"
-                android:contentDescription="Favorite Icon"
-                android:src="@drawable/ic_star_outline" />
+<!--            <ImageView-->
+<!--                android:id="@+id/item_favorite"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="24dp"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:contentDescription="Favorite Icon"-->
+<!--                android:src="@drawable/ic_star_outline" />-->
 
         </LinearLayout>
     </LinearLayout>
